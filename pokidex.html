@@ -1,0 +1,57 @@
+:<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pokidex.css">
+    <title>Pokédex</title>
+</head>
+<body>
+    <div class="title">
+        <h1 align="center">Your Pokédex</h1>
+    </div>
+    
+    <div class="container">
+        <a class="back-button" href="instuc.html">&larr; Back</a>
+        <div id="imageContainer" class="image-container"></div>
+    </div>
+    <div id="pokedexContainer"></div>
+    <img id="selectedImage" src="">
+    
+    <script>
+        // Retrieve the selected image and confirmation status from local storage
+        const selectedImage = localStorage.getItem('selectedImage');
+        const confirmedSelection = localStorage.getItem('confirmedSelection');
+
+        if (selectedImage) {
+            // Create a new image element
+            const newImage = document.createElement('img');
+            newImage.src = selectedImage;
+
+            // Add an event listener to the new image element
+            newImage.addEventListener('click', function() {
+                // Store the selected image and confirmation status
+                localStorage.setItem('selectedImage', selectedImage);
+                localStorage.setItem('confirmedSelection', 'true');
+                // Redirect to the battle page
+                window.location.href = 'battle.html';
+            });
+
+            // Append the new image to the pokedexContainer
+            const pokedexContainer = document.getElementById('pokedexContainer');
+            pokedexContainer.appendChild(newImage);
+
+            // If the selection is confirmed, redirect to the battle page
+          
+        }
+    </script>
+
+    <script src="main.js"></script>
+    <script src="Dictionary.js"></script>
+</body>
+</html>
+
+
+
+

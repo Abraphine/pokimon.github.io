@@ -1,0 +1,47 @@
+html,
+body {
+    font-family: "silkscreen", sans-serif;
+    background-color: rgb(255, 255, 255);
+
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 1vh;
+}
+
+#pokedexContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+#pokedexContainer img {
+    width: 100px;
+    height: auto;
+    margin: 1px;
+}
+
+
+

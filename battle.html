@@ -1,0 +1,84 @@
+:<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="battle.css">
+    <title>Pokémon Battle</title>
+</head>
+<body>
+    <h1>Pokémon Battle</h1>
+
+    <div id="battleContainer">
+        <h2>Battle!!</h2>
+        <div id="randomPokemonContainer">
+           
+           <!-- This container will hold the randomly selected Pokémon -->
+        </div>
+    </div>
+
+    <div id="userPokemonsContainer">
+        <h2>Your Pokémon</h2>
+        <div id="userPokemons">
+            <!-- Add a button to redirect the user to the Pokédex -->
+            <button id="selectPokemonButton" onclick="goToPokedex()">Select Pokémon</button>
+        </div>
+    </div>
+<script> 
+    function goToPokedex() {
+        // Redirect the user to the Pokédex page
+        window.location.href = "pokidex.html";
+    }
+</script>
+    <script src="Dictionary.js"></script>
+    <script>
+       function startBattle() {
+          const randomPokemonContainer = document.getElementById("randomPokemonContainer");
+          randomPokemonContainer.innerHTML = "";
+
+          const battlePokemonKeys = Object.keys(pokemonDictionary);
+          const randomPokemonKey = battlePokemonKeys[Math.floor(Math.random() * battlePokemonKeys.length)];
+          let randomPokemon = pokemonDictionary[randomPokemonKey];
+
+          const randomPokemonImage = document.createElement("img");
+          randomPokemonImage.src = randomPokemon.image;
+          randomPokemonImage.alt = "Random Pokémon";
+          randomPokemonImage.addEventListener("click", () => {
+              const selectedImage = localStorage.getItem('selectedImage');
+              const selectedPokemonExp = localStorage.getItem('selectedPokemonExp');
+              
+              if (parseInt(selectedPokemonExp) > randomPokemon.exp) {
+                  alert("You win!");
+                  // Increment capture count
+                   const captureCount = localStorage.getItem('captureCount_' + randomPokemonKey);
+                  const captureCountInt = captureCount ? parseInt(captureCount) : 0;
+                  localStorage.setItem('captureCount_' + randomPokemonKey, captureCountInt + 1);
+
+                  if (captureCountInt + 1 === 3) {
+                      // Evolution logic here
+                      if (randomPokemon.evolvedImage && randomPokemon.evolvedExp) {
+                          randomPokemon.image = randomPokemon.evolvedImage;
+                          randomPokemon.exp += randomPokemon.evolvedExp;
+                          randomPokemonImage.src = randomPokemon.image; // Update the image
+                      }
+                  }
+
+                  // Store the captured Pokémon in the Pokédex
+                  localStorage.setItem('captured_' + randomPokemonKey, 'true');
+              } else {
+                  alert("You lose!");
+                   
+              }
+          });
+
+          randomPokemonContainer.appendChild(randomPokemonImage);
+      }
+
+      // Call the startBattle function to generate a random Pokémon on page load
+      startBattle();
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
+    

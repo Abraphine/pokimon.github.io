@@ -1,0 +1,24 @@
+html,
+body {
+background-color: rgb(179, 235, 235);
+}
+#gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+  }
+  
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+
+    
+  }
+
+
+
+  
+  

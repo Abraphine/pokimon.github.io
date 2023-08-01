@@ -1,0 +1,43 @@
+body {
+    font-family: "silkscreen", sans-serif;
+    margin: 0;
+    padding: 0;
+    border-top: 80px solid black;
+    border-bottom: 200px solid black;
+    border-left: 500px solid black;
+    border-right: 500px solid black;
+}
+
+
+#speech-bubble {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+#speech-bubble img {
+    width: 600px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+
+#FirstPick {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#FirstPick img {
+    width: 200px;
+    height: auto;
+    margin: 3px;
+    cursor: pointer;
+}
+
+#FirstPick img.zoom:hover {
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+}

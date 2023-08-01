@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="land.css">
+    <title>Instruction</title>
+</head>
+<body>
+         <div id="speech-bubble">
+            <img src="instrucbubble.gif">
+
+        </div>
+        <div id="Bakk">
+                <a class="Bakk" href="index.html">&larr; Back</a>
+           </div>
+        </div>
+        
+
+    
+
+        <div id="button-container">
+            <img src="startg.png" class="myButton" onclick="handleInstucImageClick('Pick.html')">
+            <img src="menu.png" class="anotherButton" onclick="handleInstucImageClick('pokidex.html')" >
+           <img src="levelup.png" class="beforeButton" onclick="handleInstucImageClick('battle.html')" >
+ </div>
+        
+        <script>
+        function handleInstucImageClick(pageUrl) {
+            // first click Redirect to the next page
+            window.location.href = pageUrl;
+            // next screen
+        }
+  const button = document.getElementById('myButton');
+
+button.addEventListener('click', () => {
+  button.classList.add('clicked');
+
+  // Remove the 'clicked' class after a short delay to reset the button state
+  setTimeout(() => {
+    button.classList.remove('clicked');
+  }, 300);
+});
+        
+        </script>
+    <script src="instuc.html"></script>
+    <script src="main.js"></script>
+</body>
+</html>
+
